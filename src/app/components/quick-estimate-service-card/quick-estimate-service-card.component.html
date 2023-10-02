@@ -1,0 +1,52 @@
+<div
+  class="relative group w-64 h-16 hover:h-32 overflow-clip my-2 rounded-sm m-auto"
+>
+  <img
+    [src]="lawnServiceWithSelection.lawnService.imgUrl"
+    [alt]="lawnServiceWithSelection.lawnService.name"
+    class="w-full h-auto"
+  />
+
+  <div
+    class="absolute inset-0 flex items-center justify-center flex-col bg-black bg-opacity-50 group-hover:bg-opacity-0"
+  >
+    <div
+      *ngIf="lawnServiceWithSelection.selected"
+      class="w-10 absolute inset-0 flex items-center justify-center bg-brandyellow/60 z-10 group-hover:w-5"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512"
+        class="fill-brandblue"
+      >
+        <!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <path
+          d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+        />
+      </svg>
+    </div>
+    <p
+      class="text-white text-center font-semibold group-hover:bg-black/75 group-hover:font-bold mb-2"
+    >
+      {{ lawnServiceWithSelection.lawnService.name }}
+    </p>
+    <app-button
+      *ngIf="!lawnServiceWithSelection.selected"
+      label="Select"
+      (onClick)="toggleSelected(lawnServiceWithSelection.lawnService.id)"
+      class="text-white font-semibold opacity-0 group-hover:opacity-100 absolute group-hover:relative"
+    ></app-button>
+    <app-button
+      *ngIf="lawnServiceWithSelection.selected"
+      label="Deselect"
+      (onClick)="toggleSelected(lawnServiceWithSelection.lawnService.id)"
+      class="text-white font-semibold opacity-0 group-hover:opacity-100 absolute group-hover:relative"
+    ></app-button>
+    <!-- <button
+      class="bg-brandblue bg-opacity-70 text-white font-semibold py-2 px-4 rounded opacity-0 group-hover:opacity-100 hover:bg-opacity-100 absolute group-hover:relative"
+      (click)="selectClickedHandler()"
+    >
+      Select
+    </button> -->
+  </div>
+</div>

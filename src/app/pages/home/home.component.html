@@ -1,0 +1,68 @@
+<div
+  class="bg-[url('assets/images/backgrounds/blue-grad-bg.png')] bg-cover bg-top bg-no-repeat grid grid-cols-12 gap-10 items-center py-14 tracking-wider"
+>
+  <div class="col-start-2 col-span-4 text-white">
+    <h2 class="text-5xl mb-6 font-bold">
+      Welcome to GardenEasy: Your Oasis of Greenery
+    </h2>
+    <p class="text-xl leading-7">
+      Discover the beauty of lush landscapes, blooming gardens, and thriving
+      outdoor spaces. Our expert gardeners are here to provide top-notch lawn
+      care and landscaping services, tailored to your unique needs.
+    </p>
+  </div>
+  <div class="col-start-8 col-span-4">
+    <img src="assets/images/cut-uncut.png" alt="" />
+  </div>
+</div>
+<div class="grid grid-cols-12 gap-10 items-center my-6 py-12">
+  <div class="col-start-2 col-span-4">
+    <img
+      src="assets/images/map-1.svg"
+      alt="image of lawn mower"
+      style="width: 500px"
+    />
+  </div>
+  <div class="col-start-8 col-span-4 text-black">
+    <h2 class="text-5xl mb-6 font-bold">Exploring Our Service Areas</h2>
+    <p class="text-xl leading-7 mb-4">
+      At GardenEasy, our green thumbs reach far and wide. Whether you're in the
+      heart of the city or nestled in the countryside, we've got you covered.
+      Explore the map below to see our service areas and find out how close we
+      are to you.
+    </p>
+    <app-button [label]="'Explore'" class="font-semibold text-xl"></app-button>
+  </div>
+</div>
+<div
+  class="bg-[url('assets/images/backgrounds/brand-bg-grad-alt.png')] bg-cover bg-top bg-no-repeat my-6 py-16"
+>
+  <h2 class="text-white text-4xl mb-10 font-bold text-center">Our services</h2>
+  <div
+    class="flex flex-wrap gap-4 basis-4 grow justify-evenly items-center m-5"
+  >
+    <app-card [lawnService]="lawnServices[0]" class="w-80"></app-card>
+    <app-card [lawnService]="lawnServices[1]" class="w-80"></app-card>
+    <app-card [lawnService]="lawnServices[2]" class="w-80"></app-card>
+    <app-card [lawnService]="lawnServices[3]" class="w-96"></app-card>
+    <app-card [lawnService]="lawnServices[4]" class="w-96"></app-card>
+  </div>
+</div>
+
+<div class="my-6 py-5">
+  <h2 class="font-bold text-black text-center text-4xl">Testimonials</h2>
+  <div class="flex gap-10 justify-around my-8">
+    <app-card-alternate
+      [testimonial]="testimonials[0]"
+      class="w-72"
+    ></app-card-alternate>
+    <app-card-alternate
+      [testimonial]="testimonials[1]"
+      class="w-72"
+    ></app-card-alternate>
+    <app-card-alternate
+      [testimonial]="testimonials[2]"
+      class="w-72"
+    ></app-card-alternate>
+  </div>
+</div>

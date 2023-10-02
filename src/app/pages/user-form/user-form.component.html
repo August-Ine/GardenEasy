@@ -1,0 +1,35 @@
+<div class="flex h-screen">
+  <div class="mx-auto my-auto flex-1 flex justify-center p-2 gap-2 flex-col">
+    <h1 class="m-auto text-3xl mb-2 text-brandblue">
+      {{ isLogin ? "Sign in" : "Sign-up" }}
+    </h1>
+    <form
+      [formGroup]="activeForm"
+      class="flex flex-col justify-center align-middle gap-5"
+    >
+      <app-input-field
+        class="m-auto w-1/2"
+        *ngFor="let inputControl of activeForm.controls | keys"
+        [control]="$any(activeForm.get(inputControl))"
+        [label]="inputControl"
+      ></app-input-field>
+      <div class="m-auto flex gap-2 justify-around">
+        <app-button
+          label="Submit"
+          class="pt-4"
+          [disabled]="activeForm.invalid"
+          (onClick)="onSubmit()"
+        ></app-button>
+        <app-button
+          [label]="isLogin ? 'Sign-up' : 'Sign-in'"
+          class="pt-4"
+          [outline]="true"
+          (onClick)="toggleForm()"
+        ></app-button>
+      </div>
+    </form>
+  </div>
+  <div
+    class="bg-[url('assets/images/backgrounds/card-bg-pattern.png')] bg-cover bg-top bg-no-repeat w-fit flex-1 rounded-md"
+  ></div>
+</div>

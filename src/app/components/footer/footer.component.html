@@ -1,0 +1,39 @@
+<div
+  class="bg-[url('assets/images/backgrounds/footer-bg.png')] bg-cover bg-top bg-no-repeat pt-12 flex flex-wrap justify-evenly"
+>
+  <div class="flex flex-col justify-center gap-4 gap-y-4 text-white mx-auto">
+    <h2 class="text-2xl font-bold text-brandyellow text-center">
+      Contact form
+    </h2>
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="flex flex-col justify-center gap-4 gap-y-4"
+    >
+      <app-input-field
+        type="email"
+        label="Email"
+        placeholder="Enter reply email"
+        [control]="$any(contactForm.controls['email'])"
+      ></app-input-field>
+      <app-input-field
+        [textArea]="true"
+        label="Message"
+        placeholder="Your message"
+        [control]="$any(contactForm.get('message'))"
+      ></app-input-field>
+      <app-button label="Submit" class="mx-auto"></app-button>
+    </form>
+  </div>
+  <div class="mx-auto">
+    <h2 class="text-2xl font-bold text-brandyellow text-center">
+      Navigation links
+    </h2>
+    <h2 class="text-2xl font-bold text-brandyellow text-center">
+      Contact information
+    </h2>
+  </div>
+  <div class="w-full text-center align-text-bottom">
+    Copyright © 2023 Augustine Kipkirui. All rights reserved.
+  </div>
+</div>

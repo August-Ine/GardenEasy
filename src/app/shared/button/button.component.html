@@ -1,0 +1,11 @@
+<div>
+  <button
+    (click)="onClickButton($event)"
+    class="base"
+    [class.outline-button]="outline"
+    [class.solid-button]="!outline"
+    [disabled]="disabled"
+  >
+    {{ label }}
+  </button>
+</div>

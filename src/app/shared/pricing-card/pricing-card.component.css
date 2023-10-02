@@ -1,0 +1,19 @@
+.price-card {
+  @apply bg-white text-center p-5 my-0 mx-5 border border-gray-300 rounded-md shadow-md transition-transform duration-200 hover:-translate-y-2;
+}
+
+.price-card.recommended {
+  @apply border border-gray-700;
+}
+
+.price-card.recommended h2 {
+  @apply text-gray-700;
+}
+
+.not-selected {
+  @apply text-gray-500 line-through;
+}
+
+.selected {
+  @apply text-brandyellow;
+}

@@ -1,0 +1,15 @@
+<div
+  class="bg-[url('assets/images/backgrounds/card-bg-pattern.png')] bg-cover bg-top bg-no-repeat shadow-md p-4 rounded-lg text-center"
+>
+  <img
+    [src]="testimonial.imageSrc"
+    [alt]="testimonial.username"
+    class="w-36 mx-auto"
+  />
+  <div class="bg-black bg-opacity-50 rounded-md">
+    <h2 class="text-xl font-bold mb-2 text-brandyellow">
+      {{ testimonial.username }}
+    </h2>
+    <p class="text-white">{{ testimonial.testimony }}</p>
+  </div>
+</div>

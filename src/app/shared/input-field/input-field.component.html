@@ -1,0 +1,31 @@
+<div class="form-group">
+  <label class="block py-2" [for]="label">{{ label }}: </label>
+  <input
+    *ngIf="!textArea"
+    [id]="label"
+    [name]="label"
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    (ngModelChange)="onChange($event)"
+    class="rounded-sm bg-brandblue bg-opacity-60 border border-brandyellow w-full"
+    (blur)="onInputBlur()"
+    (click)="inputErrors = []"
+  />
+  <textarea
+    *ngIf="textArea"
+    [id]="label"
+    [name]="label"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    cols="30"
+    rows="10"
+    class="rounded-sm bg-brandblue bg-opacity-60 border border-brandyellow"
+  ></textarea>
+  <ul
+    *ngIf="!control.valid && control.touched"
+    class="bg-yellow-200 text-center"
+  >
+    <li *ngFor="let error of inputErrors">{{ error }}</li>
+  </ul>
+</div>

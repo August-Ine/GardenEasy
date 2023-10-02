@@ -1,0 +1,17 @@
+<div class="price-card" [class.recommended]="recommended">
+  <h2 class="text-2xl mb-2">{{ recommended ? "Annual" : "Lunar" }}</h2>
+  <p class="text-3xl mb-5">
+    ${{ totalPrice }}/{{ recommended ? "year" : "month" }}
+  </p>
+  <ul class="p-0 list-none">
+    <li
+      class="mb-2"
+      *ngFor="let service of lawnServicesWithSelection"
+      [class.not-selected]="!service.selected"
+      [class.selected]="service.selected"
+    >
+      {{ service.lawnService.name }}
+    </li>
+  </ul>
+  <app-button label="Buy now"></app-button>
+</div>

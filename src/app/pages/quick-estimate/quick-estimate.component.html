@@ -1,0 +1,63 @@
+<div class="flex justify-around">
+  <div
+    class="bg-brandyellow/50 flex-1 rounded-lg flex flex-col justify-center overflow-hidden"
+  >
+    <h2 class="w-full text-2xl font-bold text-white text-center">
+      Select services
+    </h2>
+    <app-quick-estimate-service-card
+      *ngFor="let lawnService of lawnServicesSelection"
+      [lawnServiceWithSelection]="lawnService"
+      (selectedToggleEvent)="selectedToggleEventHandler($event)"
+    ></app-quick-estimate-service-card>
+    <div class="py-3 mx-auto my-3">
+      <form
+        [formGroup]="lawnSizeForm"
+        class="m-auto text-white w-full text-center flex flex-row justify-center"
+      >
+        <div>
+          <app-input-field
+            type="number"
+            label="lawn size"
+            placeholder="10"
+            [control]="$any(lawnSizeInput)"
+            (inputChange)="onInputChange($event)"
+          ></app-input-field>
+        </div>
+        <div>
+          <label for="visitDropdown" class="block">visits per month:</label>
+          <select
+            formControlName="visitFrequency"
+            name="visitDropdown"
+            id="visitDropdown"
+            class="text-black bg-brandblue bg-opacity-60"
+            (change)="calculateTotalPrice()"
+          >
+            <option *ngFor="let option of visitOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+      </form>
+      <!-- <div
+        *ngIf="
+          lawnSizeInput!.invalid &&
+          (lawnSizeInput!.dirty || lawnSizeInput!.touched)
+        "
+      >
+        Please enter a valid number.
+      </div> -->
+    </div>
+  </div>
+  <div class="flex-1 flex justify-center items-center bg-gray-300 rounded-lg">
+    <app-pricing-card
+      [totalPrice]="monthlyPrice"
+      [lawnServicesWithSelection]="lawnServicesSelection"
+    ></app-pricing-card>
+    <app-pricing-card
+      [recommended]="true"
+      [totalPrice]="annualPrice"
+      [lawnServicesWithSelection]="lawnServicesSelection"
+    ></app-pricing-card>
+  </div>
+</div>
